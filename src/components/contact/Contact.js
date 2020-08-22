@@ -12,7 +12,7 @@ class Contact extends Component {
     };
   }
 
-  handleChane = (event) => {
+  handleChange = (event) => {
     let formData = { ...this.state.formData };
     formData[event.target.name] = event.target.value;
     this.setState({ formData });
@@ -56,7 +56,7 @@ class Contact extends Component {
               type="text"
               name="firstName"
               value={this.state.formData.firstName}
-              onChange={this.handleChane}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -66,7 +66,7 @@ class Contact extends Component {
               type="text"
               name="lastName"
               value={this.state.formData.lastName}
-              onChange={this.handleChane}
+              onChange={this.handleChange}
             />
           </div>
           <button>Submit Form</button>

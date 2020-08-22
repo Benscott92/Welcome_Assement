@@ -58,7 +58,7 @@ button {
   padding: 0;
 }
 
-.Navigation li {
+.Navigation Link {
   display: flex;
 }
 
