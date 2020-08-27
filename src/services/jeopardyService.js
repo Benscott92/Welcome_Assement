@@ -1,11 +1,14 @@
 import axios from "axios";
 class JeopardyService {
-  constructor(url = "http://jservice.io/api/random", client = axios.create()) {
+  constructor(
+    url = "http://jservice.io/api/random?count=",
+    client = axios.create()
+  ) {
     this.url = url;
     this.client = client;
   }
-  getQuestion() {
-    return this.client.get(this.url);
+  getQuestion(number = 1) {
+    return this.client.get(this.url + number);
   }
 }
 export default JeopardyService;

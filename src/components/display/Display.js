@@ -3,7 +3,27 @@ import React from "react";
 function Display(props) {
   let status = <div></div>;
   if (props.submitted === true) {
-    status = <div className={props.status}></div>;
+    status = <div id="status" className={props.status}></div>;
+  }
+  if (props.catagorySelected === false) {
+    return (
+      <div>
+        <h3>Current Score: {props.score}</h3>
+        {status}
+        <h2>Select Catagory:</h2>
+        <div className="Catagories">
+          <div className="Category" id="0" onClick={props.selectCatagory}>
+            {props.questionsArray.data[0].category.title.toUpperCase()}
+          </div>
+          <div className="Category" id="1" onClick={props.selectCatagory}>
+            {props.questionsArray.data[1].category.title.toUpperCase()}
+          </div>
+          <div className="Category" id="2" onClick={props.selectCatagory}>
+            {props.questionsArray.data[2].category.title.toUpperCase()}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -15,13 +35,14 @@ function Display(props) {
       {status}
       <div className="answerSpace">
         <form onSubmit={props.handleSubmit} action="">
+          <button>What is </button>
           <input
             type="text"
             name="answer"
+            placeholder="Answer Here"
             value={props.answer}
             onChange={props.handleChange}
           />
-          <button>Is That Your Final Answer?</button>
         </form>
       </div>
       <h6>warning leaving this page will reset your score.</h6>

@@ -35,3 +35,27 @@ input {
 .Incorrect::after {
   content: "Incorrect.";
 }
+
+.Catagories {
+  display: flex;
+}
+
+.Category {
+  background: black;
+  color: blue;
+  border: 3px solid blue;
+  height: 200px;
+  width: 200px;
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bolder;
+}
+#status {
+  display: block;
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: white 1px 0 25px;
+}

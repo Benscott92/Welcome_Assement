@@ -15,16 +15,28 @@ class Jeopardy extends Component {
       answer: "",
       submitted: false,
       status: "",
+      questionsArray: [],
+      catagorySelected: false,
     };
   }
   //get a new random question from the API and add it to the data object in state
   getNewQuestion() {
-    return this.client.getQuestion().then((result) => {
+    return this.client.getQuestion(3).then((result) => {
       this.setState({
         data: result.data[0],
+        questionsArray: result,
       });
     });
   }
+
+  selectCatagory = (event) => {
+    let index = Number(event.target.id);
+    this.setState({
+      data: this.state.questionsArray.data[index],
+      catagorySelected: true,
+    });
+  };
+
   handleChange = (event) => {
     let answer = this.state.answer;
     answer = event.target.value;
@@ -40,6 +52,7 @@ class Jeopardy extends Component {
         score: state.score + this.state.data.value,
         submitted: true,
         status: "Correct",
+        catagorySelected: false,
       }));
       return this.getNewQuestion();
     }
@@ -48,6 +61,7 @@ class Jeopardy extends Component {
       score: state.score - this.state.data.value,
       submitted: true,
       status: "Incorrect",
+      catagorySelected: false,
     }));
     this.getNewQuestion();
   };
@@ -55,6 +69,7 @@ class Jeopardy extends Component {
   //when the component mounts, get a the first question
   componentDidMount() {
     this.getNewQuestion();
+    // this.setState({ catagorySelected: true });
   }
   //display the results on the screen
   render() {
@@ -65,8 +80,12 @@ class Jeopardy extends Component {
         </div>
       );
     }
+
     return (
       <Display
+        catagorySelected={this.state.catagorySelected}
+        selectCatagory={this.selectCatagory}
+        questionsArray={this.state.questionsArray}
         status={this.state.status}
         submitted={this.state.submitted}
         score={this.state.score}
@@ -76,6 +95,7 @@ class Jeopardy extends Component {
         answer={this.state.answer}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
+        catagoryPicked={this.state.catagorySelected}
       />
     );
   }
