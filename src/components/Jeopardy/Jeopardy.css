@@ -23,14 +23,14 @@ input {
 .Correct {
   color: green;
 
-  background: rgba(0, 0, 0, 0.274);
+  background: rgba(0, 0, 0, 0.363);
 }
 .Correct::after {
   content: "Correct!";
 }
 .Incorrect {
   color: red;
-  background: rgba(0, 0, 0, 0.274);
+  background: rgba(0, 0, 0, 0.363);
 }
 .Incorrect::after {
   content: "Incorrect.";
@@ -54,7 +54,10 @@ input {
   font-weight: bolder;
 }
 #status {
-  display: block;
+  border: 2px solid blue;
+  width: 200px;
+  padding: 2px;
+  margin: auto;
   font-size: larger;
   font-weight: bolder;
   text-shadow: white 1px 0 25px;
