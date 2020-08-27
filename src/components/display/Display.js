@@ -5,6 +5,14 @@ function Display(props) {
   if (props.submitted === true) {
     status = <div id="status" className={props.status}></div>;
   }
+  if (props.status === "Incorrect") {
+    let answer = props.previousAnswer;
+    status = (
+      <div id="status" className={props.status}>
+        <h2>The answer was: {answer}</h2>
+      </div>
+    );
+  }
   if (props.catagorySelected === false) {
     return (
       <div>
@@ -31,8 +39,9 @@ function Display(props) {
       <h3>Current Score: {props.score}</h3>
       <h2>Category: {props.title}</h2>
       <h2>Question: {props.question}</h2>
-      <h4>Worth:{props.value} Points</h4>
-      {status}
+      <h4>Worth: {props.value} Points</h4>
+
+      <br />
       <div className="answerSpace">
         <form onSubmit={props.handleSubmit} action="">
           <button>What is </button>

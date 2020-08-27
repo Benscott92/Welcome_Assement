@@ -22,17 +22,17 @@ input {
 }
 .Correct {
   color: green;
-
-  background: rgba(0, 0, 0, 0.363);
+  font-size: 25px;
+  background: blue;
 }
 .Correct::after {
   content: "Correct!";
 }
 .Incorrect {
   color: red;
-  background: rgba(0, 0, 0, 0.363);
+  background: blue;
 }
-.Incorrect::after {
+.Incorrect::before {
   content: "Incorrect.";
 }
 
@@ -41,24 +41,23 @@ input {
 }
 
 .Category {
-  background: black;
-  color: blue;
-  border: 3px solid blue;
+  background: blue;
+  color: white;
+  border: 5px solid black;
   height: 200px;
   width: 200px;
   margin: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: larger;
+  font-size: 25px;
   font-weight: bolder;
 }
 #status {
-  border: 2px solid blue;
+  border: 2px solid black;
   width: 200px;
   padding: 2px;
   margin: auto;
-  font-size: larger;
   font-weight: bolder;
-  text-shadow: white 1px 0 25px;
+  text-shadow: black 0 0 2px;
 }

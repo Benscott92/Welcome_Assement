@@ -17,6 +17,7 @@ class Jeopardy extends Component {
       status: "",
       questionsArray: [],
       catagorySelected: false,
+      previousAnswer: "",
     };
   }
   //get a new random question from the API and add it to the data object in state
@@ -61,6 +62,7 @@ class Jeopardy extends Component {
       score: state.score - this.state.data.value,
       submitted: true,
       status: "Incorrect",
+      previousAnswer: this.state.data.answer,
       catagorySelected: false,
     }));
     this.getNewQuestion();
@@ -96,6 +98,7 @@ class Jeopardy extends Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         catagoryPicked={this.state.catagorySelected}
+        previousAnswer={this.state.previousAnswer}
       />
     );
   }
